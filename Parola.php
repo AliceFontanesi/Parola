@@ -26,7 +26,8 @@ class Parola
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':parola', $parola, PDO::PARAM_STR);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+        $records = $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+        return json_encode($records);
     }
 
     private static function connector() {

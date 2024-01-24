@@ -7,7 +7,8 @@ $word = $_POST['word'];
 //$word = $_GET['word'];
 
 if(!empty($word)){
-    $parole =  Parola::fetchAll($word . '%');
+    $jsonData =  Parola::fetchAll($word . '%');
+    $parole = json_decode($jsonData);
     foreach ($parole as $parola){?>
         <ul>
             <li><?php echo $parola->getParola() ?></li>
