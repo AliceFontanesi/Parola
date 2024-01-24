@@ -14,7 +14,6 @@ class DbManager
     public function connect($dbname) {
 
         $dsn = "mysql:dbname={$dbname};host={$this->host}";
-
         return new PDO($dsn, $this->username, $this->password);
 
     }
